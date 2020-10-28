@@ -1,0 +1,36 @@
+<br>
+
+<!-- <mat-spinner ></mat-spinner> -->
+<div>
+    <form (submit)="onCreateTodo(signupForm)" #signupForm="ngForm" >
+        <mat-card>
+            <mat-form-field>
+                <input matInput name="title" ngModel type="text" placeholder="Title" #titleInput="ngModel" required school>
+                <mat-error *ngIf="titleInput.invalid">Please enter Todo Title</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Brief description of Todo Item</mat-label>
+                <textarea ngModel name="description" matInput placeholder="description" #descriptionInput="ngModel" required description></textarea>
+                <mat-error *ngIf="descriptionInput.invalid">Write a brief description</mat-error>
+            </mat-form-field>
+          
+            <!-- <mat-form-field>
+                <input type="date" ngModel name="dateCreated" matInput placeholder="Date Created" #dateCreatedInput="ngModel" required dateCreated>
+                <mat-error *ngIf="dateCreatedInput.invalid">Please enter Date Created</mat-error>
+            </mat-form-field>
+  
+            <mat-form-field>
+                <input type="date" ngModel name="dateCompleted" matInput placeholder="Date Completed" #dateCompletedInput="ngModel" required dateCompleted>
+                <mat-error *ngIf="dateCompletedInput.invalid">Please enter Date Completed</mat-error>
+            </mat-form-field> -->
+  
+            <!-- <section class="example-section">
+                <mat-checkbox class="example-margin" name="done" (click)="setDone()">Check if Done</mat-checkbox>
+              </section> -->
+            <br/>
+            <br/>
+            <button mat-raised-button color="accent" type="submit" required >Save & Exit</button>
+        </mat-card>
+    </form> 
+    <br>
+</div>

@@ -1,0 +1,40 @@
+<mat-toolbar color="primary" class="mat-elevation-z5">
+    <span>Todo List</span>
+    
+
+    <span class="fill-remaining-space"></span>
+</mat-toolbar>
+<div *ngIf="allTodos.length<=0">
+    <mat-spinner></mat-spinner>
+    There are No todos
+    <button mat-raised-button color="primary" [routerLink]="['/']">Create Todos?</button>
+</div>
+
+<div class="exams" *ngIf="allTodos.length>0">
+    <mat-card class="example-card" *ngFor="let item of allTodos" class="mat-elevation-z5">
+        <mat-card-header>
+            <mat-card-title>{{item.title}}</mat-card-title>
+            <mat-card-subtitle *ngIf="done">Date Completed  {{item.dateCompleted|date:'fullDate'}}</mat-card-subtitle>
+            <mat-card-subtitle>Date Created   {{item.dateCreated|date:'fullDate'}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                {{item.description}}
+            </p>
+                <section class="example-section">
+                    <mat-checkbox class="example-margin"  (click)="setDone(item)">Done</mat-checkbox>
+                  </section>
+            
+            <button [routerLink]="['/editlist/:id']"  class="btn btn-light">
+                Edit Status
+            </button>
+            <hr/>
+            <button mat-raised-button color="accent" (click)="deleteTodo(item.id)">Delete</button>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<hr/>
+<div *ngIf="allTodos.length>0">
+    <button mat-raised-button color="primary" [routerLink]="['/']">Create Todos?</button>
+</div>
